@@ -8,56 +8,56 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 const questions = [
   {
     type: "input",
-    name: "Title",
+    name: "title",
     message: "What is the title of your project?",
   },
   {
     type: "input",
-    name: "Description",
+    name: "description",
     message: "Please provide a project description.",
   },
   {
     type: "input",
-    name: "What must user install to run this app?",
-    message: "Installation",
+    name: "installation",
+    message: "What must user install to run this app?",
   },
   {
     type: "input",
-    name: "Usage",
+    name: "usage",
     message: "How is this application used?",
   },
   {
     type: "checkbox",
-    name: "License",
+    name: "license",
     message: "What license will this project use?",
     choices: ["Apache 2.0", "MIT", "GPL v3.0", "None"],
   },
   {
     type: "input",
-    name: "Contributing",
+    name: "contributing",
     message: "Who are the cotributors to this project",
   },
   {
     type: "input",
-    name: "Tests",
+    name: "tests",
     message: "How do you Test this project?",
   },
   {
     type: "input",
-    name: "Username",
+    name: "username",
     message: "What is your GitHub usernaem?",
   },
   {
     type: "input",
-    name: "Email",
+    name: "email",
     message:
       "What is your email so there is another way to be reached for questions?",
   },
 ];
 
 // // TODO: Create a function to write README file
-function writeToFile(fileName, response) {
-  fs.writeFile(fileName, response, (err) => {
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
     if (err) {
       console.log(err);
     } else {
@@ -68,9 +68,9 @@ function writeToFile(fileName, response) {
 
 // // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then(function (response) {
-    writeToFile("README.md", generateMarkdown(response));
-    console.log(response);
+  inquirer.prompt(questions).then(function (data) {
+    writeToFile("README.md", generateMarkdown(data));
+    console.log(data);
   });
 }
 
