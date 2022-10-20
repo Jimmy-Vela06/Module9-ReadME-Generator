@@ -21,7 +21,7 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   let licenseLink = "";
   if (license === "MIT") {
-    licenseLink = "(https://lbesson.mit-license.org/)";
+    licenseLink = "(https://choosealicense.com/licenses/mit/#)";
   } else {
     licenseLink = "";
   }
@@ -42,44 +42,47 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.Title}
-
+  return `# **${data.title}**
+  ---
   ## ${renderLicenseSection(data.license)} ${renderLicenseBadge(data.license)}
-
-  ## Table of Contents:
-  ### [Description](#desciption)
+  ---
+  ##  **Table of Contents:**
+  ### [Description](#description)
   ### [Installation](#installation)
   ### [Usage](#usage)
   ### [Contributing](#contributing)
   ### [Tests](#tests)
   ### [License](#license)
   ### [Questions](#questions)
-
-  ## Description:
-  ${data.desciption}
-
-  ## Installation:
+  ### [Images](#images)
+  ---
+  ## **Description:**
+  ${data.description}
+  ---
+  ## **Installation:**
   You must install the following for this application to function:
   ${data.installation}
-
-  ## Usage:
+  ---
+  ## **Usage:**
   ${data.usage}
-
-  ## Contributing:
+  ---
+  ## **Contributing:**
   ${data.contributing}
-
-  ## Tests:
+  ---
+  ## **Tests:**
   Run the following commands in your terminal to test this application:
   ${data.tests}
-
-  ## License:
-  ###${data.license}
+  ---
+  ## **License:**
+  ### ${data.license}
   ${renderLicenseLink(data.license)}
-
-  ## Questions:
+  ---
+  ## **Questions:**
   If you have any contacat the following
-  GitHub: https://github.com/${data.username}
-  Email: ${data.email}
+  GitHub: <https://github.com/${data.username}>
+  Email: <${data.email}>
+  ---
+  ## **Images:**
 `;
 }
 

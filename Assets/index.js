@@ -27,7 +27,7 @@ const questions = [
     message: "How is this application used?",
   },
   {
-    type: "checkbox",
+    type: "list",
     name: "license",
     message: "What license will this project use?",
     choices: ["Apache 2.0", "MIT", "GPL v3.0", "None"],
